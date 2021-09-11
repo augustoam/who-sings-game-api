@@ -45,7 +45,7 @@ export const CONFIG: IConfigFile = {
         connectionRetryTimeout: 5000
     },
     redis: {
-        keyPrefix: "who-sings-musixmatch:cache",
+        keyPrefix: "who-sings-musixmatch",
         host: env.REDIS_ADDRESS as string,
         port: parseInt(env.REDIS_PORT) as number,
         password: env.REDIS_PASSWORD as string,

@@ -2,7 +2,7 @@
   "name": "who-sings-musixmatch",
   "version": "0.0.1",
   "description": "Musixmatch - JavaScript Engineer Test",
-  "repository": "https://github.com/augustoam/who-sings-musixmatchs",
+  "repository": "https://github.com/augustoam/who-sings-musixmatch",
   "scripts": {
     "compile": "tsc",
     "start": "node build/index.js"

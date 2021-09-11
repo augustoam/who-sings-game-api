@@ -13,13 +13,6 @@ export abstract class BaseRepository<T extends Mongoose.Document> {
     }
 
     /**
-     *
-     */
-    public insert(document: Mongoose.DocumentDefinition<T>): Promise<T> {
-        return this.model.create(document);
-    }
-
-    /**
      * Find a page of documents by conditions.
      *
      * @param {Object} [conditions] A set of conditions
