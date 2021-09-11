@@ -22,7 +22,6 @@ export class GraphQL {
     public async init(app: Application): Promise<void> {
         this.logger.info("[BOOTING] Initializing GraphQL");
 
-
         const schema: GraphQLSchema = await this.getSchema();
 
         app.express.post(
@@ -69,13 +68,14 @@ export class GraphQL {
                 container.get(require(join(folder, file))[prototypeName]);
             });
 
-        let globalMiddlewares: any = [ErrorLoggerMiddleware /*ResolveTimeMiddleware*/];
+        let globalMiddlewares: any = [ErrorLoggerMiddleware];
 
         try {
             return await buildSchema({
                 //typeDefs: /* GraphQL */ `scalar Upload`,
                 resolvers: [__dirname + "../../graphQL/resolvers/**/*Resolver.{ts,js}"],
                 globalMiddlewares: globalMiddlewares,
+                authChecker: () => false,
                 emitSchemaFile: true,
                 validate: true,
                 nullableByDefault: true,

@@ -28,7 +28,7 @@ export class ErrorHandlerMiddleware {
             }
             else {
                 if (err.stack) this.logger.debug(err.stack);
-                this.sendErrorResponse(response, ErrorMap[Errors.GENERIC_ERROR]);
+                this.sendErrorResponse(response, ErrorMap[Errors.BAD_REQUEST]);
             }
         }
 

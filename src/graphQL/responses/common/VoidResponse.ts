@@ -1,5 +1,5 @@
 import { Field, ObjectType } from "type-graphql";
-import { ResponseStatus } from '../../models/Enums'
+import { ResponseStatus } from '../../../models/Enums';
 
 @ObjectType()
 export class VoidResponse {

@@ -1,4 +1,4 @@
-import { VoidResponse } from '../graphQL/responses/VoidResponse';
+import { VoidResponse } from '../graphQL/responses/common/VoidResponse';
 import { ResponseStatus } from '../models/Enums';
 import { ArrayResponse, EntityResponse, PagedResponse } from '../types';
 

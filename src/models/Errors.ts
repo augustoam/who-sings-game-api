@@ -1,112 +1,94 @@
 import { ErrorMapType } from '../types';
 
 export const enum Errors {
-    UNAUTHORIZED = "UNAUTHORIZED",
-    EXPIRED_TOKEN = "EXPIRED_TOKEN",
-    INVALID_TOKEN = "INVALID_TOKEN",
-    INVALID_CREDENTIALS = "INVALID_CREDENTIALS",
-    FORBIDDEN = "FORBIDDEN",
     BAD_REQUEST = "BAD_REQUEST",
-    GENERIC_ERROR = "GENERIC_ERROR",
-    ENTITY_NOT_FOUND = "ENTITY_NOT_FOUND",
+    UNAUTHORIZED = "UNAUTHORIZED",
+    PAYMENT_REQUIRED = "PAYMENT_REQUIRED",
+    FORBIDDEN = "FORBIDDEN",
     NOT_FOUND = "NOT_FOUND",
-    ALREADY_CREATED = "ALREADY_CREATED"
+    METHOD_NOT_ALLOWED = "METHOD_NOT_ALLOWED",
+    INTERVAL_SERVER_ERROR = "INTERVAL_SERVER_ERROR",
+    SERVICE_UNAVAILABLE = "SERVICE_UNAVAILABLE"
 }
 
 export const ErrorMap: ErrorMapType = {
-    UNAUTHORIZED: {
-        label: "Unauthorized",
-        code: "unauthorized",
-        status: 401
-    },
-
-    EXPIRED_TOKEN: {
-        label: "Expired token",
-        code: "unauthorized-expired-token",
-        status: 401
-    },
-
-    INVALID_TOKEN: {
-        label: "Invalid token",
-        code: "unauthorized-invalid-token",
-        status: 401
-    },
-
-    INVALID_CREDENTIALS: {
-        label: "Invalid credentials",
-        code: "invalid-credentials",
-        status: 403
-    },
-
-    FORBIDDEN: {
-        label: "Forbidden",
-        code: "forbidden",
-        status: 403
-    },
 
     BAD_REQUEST: {
-        label: "Bad request",
+        label: "The request had bad syntax or was inherently impossible to be satisfied.",
         code: "bad-request",
         status: 400
     },
 
-    GENERIC_ERROR: {
-        label: "Internal server error",
-        code: "generic-service-error",
-        status: 500
+    UNAUTHORIZED: {
+        label: "Authentication failed, probably because of invalid/missing API key.",
+        code: "unauthorized",
+        status: 401
     },
 
-    ENTITY_NOT_FOUND: {
-        label: "Entity not found",
-        code: "entity-not-found",
-        status: 400
+    PAYMENT_REQUIRED: {
+        label: "The usage limit has been reached, either you exceeded per day requests limits or your balance is insufficient.",
+        code: "payment-required",
+        status: 402
+    },
+
+    FORBIDDEN: {
+        label: "You are not authorized to perform this operation.",
+        code: "forbidden",
+        status: 403
     },
 
     NOT_FOUND: {
-        label: "Not found",
+        label: "The requested resource was not found.",
         code: "not-found",
         status: 404
     },
 
-    ALREADY_CREATED: {
-        label: "Already created",
-        code: "already-created",
-        status: 409
+    METHOD_NOT_ALLOWED: {
+        label: "The requested method was not found.",
+        code: "method-not-allowed",
+        status: 405
     },
+
+    INTERVAL_SERVER_ERROR: {
+        label: "Ops. Something were wrong.",
+        code: "internal-server-error",
+        status: 500
+    },
+
+    SERVICE_UNAVAILABLE: {
+        label: "Ops. Something were wrong.",
+        code: "service-unavailable",
+        status: 503
+    },
+
 };
 
 export const mapErrorCode = (error): Errors => {
-    if (error.response?.body?.status === 'error') {
-        switch (error.response?.body?.error?.code) {
-            case 'unauthorized': {
-                return Errors.UNAUTHORIZED;
-            }
-            case 'unauthorized-expired-token': {
-                return Errors.EXPIRED_TOKEN;
-            }
-            case 'unauthorized-invalid-token': {
-                return Errors.INVALID_TOKEN;
-            }
-            case 'invalid-credentials': {
-                return Errors.INVALID_CREDENTIALS;
-            }
-            case 'forbidden': {
-                return Errors.FORBIDDEN;
-            }
-            case 'bad-request': {
+    if (error.status_code) {
+        switch (error.status_code) {
+            case 400: {
                 return Errors.BAD_REQUEST;
             }
-            case 'generic-service-error': {
-                return Errors.GENERIC_ERROR;
+            case 401: {
+                return Errors.UNAUTHORIZED;
             }
-            case 'entity-not-found': {
-                return Errors.ENTITY_NOT_FOUND;
+            case 402: {
+                return Errors.PAYMENT_REQUIRED;
             }
-            case 'not-found': {
+            case 403: {
+                return Errors.FORBIDDEN;
+            }
+            case 404: {
                 return Errors.NOT_FOUND;
             }
-            case 'already-created': {
-                return Errors.ALREADY_CREATED;
+            case 405: {
+                return Errors.METHOD_NOT_ALLOWED;
+            }
+            case 500: {
+                return Errors.INTERVAL_SERVER_ERROR;
+            }
+            case 503: {
+                return Errors.SERVICE_UNAVAILABLE;
             }
             default: {
                 return Errors.BAD_REQUEST;

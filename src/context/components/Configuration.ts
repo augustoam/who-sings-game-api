@@ -50,4 +50,8 @@ export const CONFIG: IConfigFile = {
         port: parseInt(env.REDIS_PORT) as number,
         password: env.REDIS_PASSWORD as string,
     },
+    musixmatch: {
+        address: env.MUSIXMATCH_ADDRESS as string,
+        apiKey: env.MUSIXMATCH_API_KEY as string
+    }
 };
