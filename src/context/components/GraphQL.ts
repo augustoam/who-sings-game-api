@@ -9,6 +9,8 @@ import { FileSystem } from '../../utils/FileSystem';
 import { join, resolve } from 'path';
 import { ErrorType } from '../../types';
 import { ErrorMap } from '../../models/Errors';
+import expressPlayground from 'graphql-playground-middleware-express';
+import { CONFIG } from './Configuration';
 
 @ProvideAsSingleton(GraphQL)
 export class GraphQL {
@@ -54,6 +56,11 @@ export class GraphQL {
                 }
             }),
         );
+
+        // Do not expose api doc in production env
+        if (CONFIG.nodeEnv != 'production') {
+            app.express.get("/", expressPlayground({ endpoint: "/" }));
+        }
     }
 
     private async getSchema(): Promise<GraphQLSchema> {

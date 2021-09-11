@@ -17,9 +17,7 @@ export class LyricsSnippetResolver {
   }
 
   @Query(type => LyricsSnippetResponse)
-  public async lyricsSnippet(
-    @Ctx() request: Request
-  ) {
+  public async lyricsSnippet(@Ctx() request: Request) {
     return ResponseMapper.entityResponse<LyricsSnippet>(await this.musixmatchServiceProvider.getLyricsSnippet());
   }
 }

@@ -20,7 +20,7 @@ export class Rest {
         this.logger.info("[BOOTING] Initializing REST");
 
         app.express.use(cors(this.corsOptionsDelegate.bind(this)));
-        app.express.use(helmet());
+        app.express.use(helmet({ contentSecurityPolicy: (CONFIG.nodeEnv === 'production') ? undefined : false }));
         app.express.use(LoggerFactory.getExpressLoggerHandler("Express"));
 
     }

@@ -1,0 +1,1068 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Who Sings API Game | API Reference</title>
+    <link rel="stylesheet" href="stylesheets/foundation.min.css" />
+    <link rel="stylesheet" href="stylesheets/spectacle.min.css" />
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <!-- <script src="javascripts/foundation.js"></script> -->
+    <script src="javascripts/spectacle.min.js"></script>
+  </head>
+  <body id="spectacle">
+    <div id="page" class="drawer-layout drawer-slide-right-large">
+      <div id="sidebar">
+        <button class="close-button" aria-label="Close menu" type="button" data-drawer-close>
+          <span aria-hidden="true">×</span>
+        </button>
+        <nav id="nav" role="navigation">
+          <h5>Topics</h5>
+          <a href="#introduction">Introduction</a>
+          <h5>Operations</h5>
+          <section>
+            <a href="#tag-Lyrics-Snippet">Lyrics Snippet</a>
+            <ul>
+              <li>
+                <a href="#operation-lyrics_snippet-post"> Lyrics Snippet </a>
+              </li>
+            </ul>
+          </section>
+          <section>
+            <a href="#tag-Player-Score">Player Score</a>
+            <ul>
+              <li>
+                <a href="#operation-save_player_score-post"> Save Player Score </a>
+              </li>
+              <li>
+                <a href="#operation-player_high_score-post"> Player High Score </a>
+              </li>
+              <li>
+                <a href="#operation-players_leader_board-post"> Players Leader Board </a>
+              </li>
+            </ul>
+          </section>
+          <h5>Schema Definitions</h5>
+          <a href="#definition-Boolean"> Boolean </a>
+          <a href="#definition-DateTimeScalar"> DateTimeScalar </a>
+          <a href="#definition-Int"> Int </a>
+          <a href="#definition-LyricsSnippet"> LyricsSnippet </a>
+          <a href="#definition-LyricsSnippetResponse"> LyricsSnippetResponse </a>
+          <a href="#definition-PlayerHighScoresArrayResponse"> PlayerHighScoresArrayResponse </a>
+          <a href="#definition-PlayerScore"> PlayerScore </a>
+          <a href="#definition-PlayerScoreResponse"> PlayerScoreResponse </a>
+          <a href="#definition-ResponseStatus"> ResponseStatus </a>
+          <a href="#definition-String"> String </a>
+        </nav>
+      </div>
+      <div id="docs" class="row collapse expanded drawer" data-drawer>
+        <button class="floating-menu-icon" type="button" data-drawer-slide="right">
+          <span class="hamburger"></span>
+        </button>
+        <div class="example-box doc-content"></div>
+        <article>
+          <h1 class="doc-title">Who Sings API Game
+            <span>API Reference</span>
+          </h1>
+          <div id="introduction" data-traverse-target="introduction">
+            <div class="doc-row">
+              <div class="doc-copy">
+                <p>Welcome to the Who Sings Game API reference. This is a live example of how you can use
+                  <a href="https://github.com/wayfair/dociql">DociQL</a> in conjunction with
+                  <a href="https://graphql.org/">GraphQL</a> to generate beautiful static documentation for your own APIs.</p>
+                <p>The Who Sings Game API is GraphQL API. It&#39;s schema can be fetched using introspection query and can be used for generating code, documentations, tests etc.</p>
+                <p>GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools.</p>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>API Endpoints</h5>
+                  <!-- <div class="hljs"> --><pre><code>Who Sings Game API:
+http://localhost:4000
+</code></pre>
+                  <!-- </div> -->
+                  <h5>Contact:
+                    <a href="mailto:augusto.albertoni@gmail.com">augusto.albertoni@gmail.com</a>
+                  </h5>
+                  <h5>Version:
+                    <span>1.0.0</span>
+                  </h5>
+                </section>
+              </div>
+            </div>
+          </div>
+          <h1 id="tag-Lyrics-Snippet" class="swagger-summary-tag" data-traverse-target="tag-Lyrics-Snippet">Lyrics Snippet</h1>
+          <div class="tag-description doc-row">
+            <div class="doc-copy">
+              <p>Base methods to fetch lyrics snippet.</p>
+            </div>
+          </div>
+          <div id="operation-lyrics_snippet-post" class="operation panel" data-traverse-target="operation-lyrics_snippet-post">
+            <!-- <section class="operation-tags row"> -->
+            <!-- <div class="doc-copy"> -->
+            <div class="operation-tags">
+              <a class="label" href="#tag-Lyrics-Snippet">Lyrics Snippet</a>
+              <!---->
+            </div>
+            <!-- </div> -->
+            <!-- </section> -->
+            <h2 class="operation-title">
+              <span class="operation-summary">Lyrics Snippet</span>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-operation-description">
+                  <p>Query to retrive a random lyrics snippet</p>
+                </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-request-body"> </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h4>Example</h3>
+                    <h5>Request Content-Types:
+                      <span>application/json</span>
+                    </h5>
+                    <h5>Query</h5>
+                    <!-- <div class="hljs"> -->
+                    <html>
+                    <head></head>
+                    <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">query</span> lyricsSnippet<span class="hljs-tag">{
+  <span class="hljs-symbol">lyricsSnippet<span class="hljs-tag">{
+    <span class="hljs-symbol">status</span>
+    <span class="hljs-symbol">item<span class="hljs-tag">{
+      <span class="hljs-symbol">snippetBody</span>
+      <span class="hljs-symbol">artistOptions</span>
+      <span class="hljs-symbol">rightArtist</span>
+    }</span></span>
+  }</span></span>
+}</span></span>
+</code></pre> </body>
+                    </html>
+                    <!-- </div> -->
+                    <a href="http://localhost:4000?query=query%20lyricsSnippet%7B%0A%20%20lyricsSnippet%7B%0A%20%20%20%20status%0A%20%20%20%20item%7B%0A%20%20%20%20%20%20snippetBody%0A%20%20%20%20%20%20artistOptions%0A%20%20%20%20%20%20rightArtist%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D" target="_blank">Try it now
+                      <a/> </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-responses">
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">200 OK</div>
+                    </div>
+                    <div class="prop-value">
+                      <p>Successful operation</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-inner">
+                    <div class="prop-name">type</div>
+                    <div class="prop-value">
+                      <div class="json-property-type">
+                        <div class="">
+                          <a class="json-schema-ref" href="#/definitions/LyricsSnippetResponse">LyricsSnippetResponse</a>
+                        </div>
+                      </div>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <h5>Response Content-Types:
+                  <span>application/json</span>
+                </h5>
+                <section>
+                  <h5>Response Example
+                    <span>(200 OK)</span>
+                  </h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"lyricsSnippet"</span>: {
+      <span class="hljs-attr">"item"</span>: {
+        <span class="hljs-attr">"snippetBody"</span>: <span class="hljs-string">"string"</span>,
+        <span class="hljs-attr">"artistOptions"</span>: [
+          <span class="hljs-string">"string"</span>
+        ],
+        <span class="hljs-attr">"rightArtist"</span>: <span class="hljs-string">"string"</span>
+      }
+    }
+  }
+}
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <h1 id="tag-Player-Score" class="swagger-summary-tag" data-traverse-target="tag-Player-Score">Player Score</h1>
+          <div class="tag-description doc-row">
+            <div class="doc-copy">
+              <p>Base methods to fetch player score.</p>
+            </div>
+          </div>
+          <div id="operation-save_player_score-post" class="operation panel" data-traverse-target="operation-save_player_score-post">
+            <!-- <section class="operation-tags row"> -->
+            <!-- <div class="doc-copy"> -->
+            <div class="operation-tags">
+              <a class="label" href="#tag-Player-Score">Player Score</a>
+              <!---->
+            </div>
+            <!-- </div> -->
+            <!-- </section> -->
+            <h2 class="operation-title">
+              <span class="operation-summary">Save Player Score</span>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-operation-description">
+                  <p>Mutation to save a player score</p>
+                </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-request-body"> </section>
+                <section class="swagger-request-params">
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">playerName:
+                        <span class="prop-type">
+                          <div class="json-property-type">string</div>
+                          <span class="json-property-range" title="Value limits"></span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="prop-value">
+                      <p class="no-description">(no description)</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">numberOfPlays:
+                        <span class="prop-type">
+                          <div class="json-property-type">integer</div>
+                          <span class="json-property-range" title="Value limits"></span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="prop-value">
+                      <p class="no-description">(no description)</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">numberOfCorrectAnswers:
+                        <span class="prop-type">
+                          <div class="json-property-type">integer</div>
+                          <span class="json-property-range" title="Value limits"></span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="prop-value">
+                      <p class="no-description">(no description)</p>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h4>Example</h3>
+                    <h5>Request Content-Types:
+                      <span>application/json</span>
+                    </h5>
+                    <h5>Query</h5>
+                    <!-- <div class="hljs"> -->
+                    <html>
+                    <head></head>
+                    <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">mutation</span> savePlayerScore<span class="hljs-tag">(<span class="hljs-code">$playerName</span>:<span class="hljs-type"> String!</span>, <span class="hljs-code">$numberOfPlays</span>:<span class="hljs-type"> Int!</span>, <span class="hljs-code">$numberOfCorrectAnswers</span>:<span class="hljs-type"> Int!</span>)</span><span class="hljs-tag">{
+  <span class="hljs-symbol">savePlayerScore<span class="hljs-tag">(playerName: <span class="hljs-code">$playerName</span>, numberOfPlays: <span class="hljs-code">$numberOfPlays</span>, numberOfCorrectAnswers: <span class="hljs-code">$numberOfCorrectAnswers</span>)</span><span class="hljs-tag">{
+    <span class="hljs-symbol">status</span>
+    <span class="hljs-symbol">item<span class="hljs-tag">{
+      <span class="hljs-symbol">playerName</span>
+      <span class="hljs-symbol">numberOfPlays</span>
+      <span class="hljs-symbol">numberOfCorrectAnswers</span>
+      <span class="hljs-symbol">createdAt</span>
+    }</span></span>
+  }</span></span>
+}</span></span>
+</code></pre> </body>
+                    </html>
+                    <!-- </div> -->
+                    <h5>Variables</h5>
+                    <!-- <div class="hljs"> -->
+                    <html>
+                    <head></head>
+                    <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"playerName"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"numberOfPlays"</span>: <span class="hljs-string">"integer"</span>,
+  <span class="hljs-attr">"numberOfCorrectAnswers"</span>: <span class="hljs-string">"integer"</span>
+}
+</code></pre> </body>
+                    </html>
+                    <!-- </div> -->
+                    <a href="http://localhost:4000?query=mutation%20savePlayerScore(%24playerName%3A%20String!%2C%20%24numberOfPlays%3A%20Int!%2C%20%24numberOfCorrectAnswers%3A%20Int!)%7B%0A%20%20savePlayerScore(playerName%3A%20%24playerName%2C%20numberOfPlays%3A%20%24numberOfPlays%2C%20numberOfCorrectAnswers%3A%20%24numberOfCorrectAnswers)%7B%0A%20%20%20%20status%0A%20%20%20%20item%7B%0A%20%20%20%20%20%20playerName%0A%20%20%20%20%20%20numberOfPlays%0A%20%20%20%20%20%20numberOfCorrectAnswers%0A%20%20%20%20%20%20createdAt%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D" target="_blank">Try it now
+                      <a/> </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-responses">
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">200 OK</div>
+                    </div>
+                    <div class="prop-value">
+                      <p>Successful operation</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-inner">
+                    <div class="prop-name">type</div>
+                    <div class="prop-value">
+                      <div class="json-property-type">
+                        <div class="">
+                          <a class="json-schema-ref" href="#/definitions/PlayerScoreResponse">PlayerScoreResponse</a>
+                        </div>
+                      </div>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <h5>Response Content-Types:
+                  <span>application/json</span>
+                </h5>
+                <section>
+                  <h5>Response Example
+                    <span>(200 OK)</span>
+                  </h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"savePlayerScore"</span>: {
+      <span class="hljs-attr">"item"</span>: {
+        <span class="hljs-attr">"playerName"</span>: <span class="hljs-string">"string"</span>,
+        <span class="hljs-attr">"numberOfPlays"</span>: <span class="hljs-string">"integer"</span>,
+        <span class="hljs-attr">"numberOfCorrectAnswers"</span>: <span class="hljs-string">"integer"</span>
+      }
+    }
+  }
+}
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="operation-player_high_score-post" class="operation panel" data-traverse-target="operation-player_high_score-post">
+            <!-- <section class="operation-tags row"> -->
+            <!-- <div class="doc-copy"> -->
+            <div class="operation-tags">
+              <a class="label" href="#tag-Player-Score">Player Score</a>
+              <!---->
+            </div>
+            <!-- </div> -->
+            <!-- </section> -->
+            <h2 class="operation-title">
+              <span class="operation-summary">Player High Score</span>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-operation-description">
+                  <p>Query to retrive a player high score</p>
+                </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-request-body"> </section>
+                <section class="swagger-request-params">
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">playerName:
+                        <span class="prop-type">
+                          <div class="json-property-type">string</div>
+                          <span class="json-property-range" title="Value limits"></span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="prop-value">
+                      <p class="no-description">(no description)</p>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h4>Example</h3>
+                    <h5>Request Content-Types:
+                      <span>application/json</span>
+                    </h5>
+                    <h5>Query</h5>
+                    <!-- <div class="hljs"> -->
+                    <html>
+                    <head></head>
+                    <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">query</span> playerHighScores<span class="hljs-tag">(<span class="hljs-code">$playerName</span>:<span class="hljs-type"> String!</span>)</span><span class="hljs-tag">{
+  <span class="hljs-symbol">playerHighScores<span class="hljs-tag">(playerName: <span class="hljs-code">$playerName</span>)</span><span class="hljs-tag">{
+    <span class="hljs-symbol">status</span>
+    <span class="hljs-symbol">items<span class="hljs-tag">{
+      <span class="hljs-symbol">playerName</span>
+      <span class="hljs-symbol">numberOfPlays</span>
+      <span class="hljs-symbol">numberOfCorrectAnswers</span>
+      <span class="hljs-symbol">createdAt</span>
+    }</span></span>
+  }</span></span>
+}</span></span>
+</code></pre> </body>
+                    </html>
+                    <!-- </div> -->
+                    <h5>Variables</h5>
+                    <!-- <div class="hljs"> -->
+                    <html>
+                    <head></head>
+                    <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"playerName"</span>: <span class="hljs-string">"string"</span>
+}
+</code></pre> </body>
+                    </html>
+                    <!-- </div> -->
+                    <a href="http://localhost:4000?query=query%20playerHighScores(%24playerName%3A%20String!)%7B%0A%20%20playerHighScores(playerName%3A%20%24playerName)%7B%0A%20%20%20%20status%0A%20%20%20%20items%7B%0A%20%20%20%20%20%20playerName%0A%20%20%20%20%20%20numberOfPlays%0A%20%20%20%20%20%20numberOfCorrectAnswers%0A%20%20%20%20%20%20createdAt%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D" target="_blank">Try it now
+                      <a/> </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-responses">
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">200 OK</div>
+                    </div>
+                    <div class="prop-value">
+                      <p>Successful operation</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-inner">
+                    <div class="prop-name">type</div>
+                    <div class="prop-value">
+                      <div class="json-property-type">
+                        <div class="">
+                          <a class="json-schema-ref" href="#/definitions/PlayerHighScoresArrayResponse">PlayerHighScoresArrayResponse</a>
+                        </div>
+                      </div>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <h5>Response Content-Types:
+                  <span>application/json</span>
+                </h5>
+                <section>
+                  <h5>Response Example
+                    <span>(200 OK)</span>
+                  </h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"playerHighScores"</span>: {
+      <span class="hljs-attr">"items"</span>: [
+        {
+          <span class="hljs-attr">"playerName"</span>: <span class="hljs-string">"string"</span>,
+          <span class="hljs-attr">"numberOfPlays"</span>: <span class="hljs-string">"integer"</span>,
+          <span class="hljs-attr">"numberOfCorrectAnswers"</span>: <span class="hljs-string">"integer"</span>
+        }
+      ]
+    }
+  }
+}
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="operation-players_leader_board-post" class="operation panel" data-traverse-target="operation-players_leader_board-post">
+            <!-- <section class="operation-tags row"> -->
+            <!-- <div class="doc-copy"> -->
+            <div class="operation-tags">
+              <a class="label" href="#tag-Player-Score">Player Score</a>
+              <!---->
+            </div>
+            <!-- </div> -->
+            <!-- </section> -->
+            <h2 class="operation-title">
+              <span class="operation-summary">Players Leader Board</span>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-operation-description">
+                  <p>Query to retrive a players leader board</p>
+                </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-request-body"> </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h4>Example</h3>
+                    <h5>Request Content-Types:
+                      <span>application/json</span>
+                    </h5>
+                    <h5>Query</h5>
+                    <!-- <div class="hljs"> -->
+                    <html>
+                    <head></head>
+                    <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">query</span> playersLeaderBoard<span class="hljs-tag">{
+  <span class="hljs-symbol">playersLeaderBoard<span class="hljs-tag">{
+    <span class="hljs-symbol">status</span>
+    <span class="hljs-symbol">items<span class="hljs-tag">{
+      <span class="hljs-symbol">playerName</span>
+      <span class="hljs-symbol">numberOfPlays</span>
+      <span class="hljs-symbol">numberOfCorrectAnswers</span>
+      <span class="hljs-symbol">createdAt</span>
+    }</span></span>
+  }</span></span>
+}</span></span>
+</code></pre> </body>
+                    </html>
+                    <!-- </div> -->
+                    <a href="http://localhost:4000?query=query%20playersLeaderBoard%7B%0A%20%20playersLeaderBoard%7B%0A%20%20%20%20status%0A%20%20%20%20items%7B%0A%20%20%20%20%20%20playerName%0A%20%20%20%20%20%20numberOfPlays%0A%20%20%20%20%20%20numberOfCorrectAnswers%0A%20%20%20%20%20%20createdAt%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D" target="_blank">Try it now
+                      <a/> </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-responses">
+                  <div class="prop-row prop-group">
+                    <div class="prop-name">
+                      <div class="prop-title">200 OK</div>
+                    </div>
+                    <div class="prop-value">
+                      <p>Successful operation</p>
+                    </div>
+                  </div>
+                  <div class="prop-row prop-inner">
+                    <div class="prop-name">type</div>
+                    <div class="prop-value">
+                      <div class="json-property-type">
+                        <div class="">
+                          <a class="json-schema-ref" href="#/definitions/PlayerHighScoresArrayResponse">PlayerHighScoresArrayResponse</a>
+                        </div>
+                      </div>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <h5>Response Content-Types:
+                  <span>application/json</span>
+                </h5>
+                <section>
+                  <h5>Response Example
+                    <span>(200 OK)</span>
+                  </h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"playersLeaderBoard"</span>: {
+      <span class="hljs-attr">"items"</span>: [
+        {
+          <span class="hljs-attr">"playerName"</span>: <span class="hljs-string">"string"</span>,
+          <span class="hljs-attr">"numberOfPlays"</span>: <span class="hljs-string">"integer"</span>,
+          <span class="hljs-attr">"numberOfCorrectAnswers"</span>: <span class="hljs-string">"integer"</span>
+        }
+      ]
+    }
+  }
+}
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <h1>Schema Definitions</h1>
+          <div id="definition-Boolean" class="definition panel" data-traverse-target="definition-Boolean">
+            <h2 class="panel-title">
+              <a name="/definitions/Boolean"></a>Boolean: boolean
+              <!-- <span class="json-property-type"><div class="json-property-type">boolean</div>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>The <code>Boolean</code> scalar type represents <code>true</code> or <code>false</code>.</p>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol">boolean</span>
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-DateTimeScalar" class="definition panel" data-traverse-target="definition-DateTimeScalar">
+            <h2 class="panel-title">
+              <a name="/definitions/DateTimeScalar"></a>DateTimeScalar: object
+              <!-- <span class="json-property-type"><div class="json-property-type">object</div>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>The javascript Date as string. Type represents date and time as the ISO Date string.</p>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol">object</span>
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-Int" class="definition panel" data-traverse-target="definition-Int">
+            <h2 class="panel-title">
+              <a name="/definitions/Int"></a>Int: number
+              <!-- <span class="json-property-type"><div class="json-property-type">number</div>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>The <code>Int</code> scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.</p>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol">number</span>
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-LyricsSnippet" class="definition panel" data-traverse-target="definition-LyricsSnippet">
+            <h2 class="panel-title">
+              <a name="/definitions/LyricsSnippet"></a>LyricsSnippet: object
+              <!-- <span class="json-property-type"><div class="json-property-type">object</div>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="snippetBody">
+                      <span class="json-property-name">snippetBody:</span>
+                      <div class="json-property-type">
+                        <div class="json-schema-ref-string">
+                          <a class="json-schema-ref" href="#/definitions/String">String</a>
+                        </div>
+                      </div>
+                      <span class="json-property-range" title="Value limits"></span>
+                      <span class="json-property-required"></span>
+                    </dt>
+                    <dt data-property-name="artistOptions">
+                      <span class="json-property-name">artistOptions:</span>
+                      <div class="json-property-type">
+                        <div class="json-schema-ref-array">
+                          <a class="json-schema-ref" href="#/definitions/String">String</a>
+                        </div>
+                      </div>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="rightArtist">
+                      <span class="json-property-name">rightArtist:</span>
+                      <div class="json-property-type">
+                        <div class="json-schema-ref-string">
+                          <a class="json-schema-ref" href="#/definitions/String">String</a>
+                        </div>
+                      </div>
+                      <span class="json-property-range" title="Value limits"></span>
+                      <span class="json-property-required"></span>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"snippetBody"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"artistOptions"</span>: [
+    <span class="hljs-string">"string"</span>
+  ],
+  <span class="hljs-attr">"rightArtist"</span>: <span class="hljs-string">"string"</span>
+}
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-LyricsSnippetResponse" class="definition panel" data-traverse-target="definition-LyricsSnippetResponse">
+            <h2 class="panel-title">
+              <a name="/definitions/LyricsSnippetResponse"></a>LyricsSnippetResponse: object
+              <!-- <span class="json-property-type"><div class="json-property-type">object</div>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="status">
+                      <span class="json-property-name">status:</span>
+                      <div class="json-property-type">
+                        <div class="">
+                          <a class="json-schema-ref" href="#/definitions/ResponseStatus">ResponseStatus</a>
+                        </div>
+                      </div>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="item">
+                      <span class="json-property-name">item:</span>
+                      <div class="json-property-type">
+                        <div class="">
+                          <a class="json-schema-ref" href="#/definitions/LyricsSnippet">LyricsSnippet</a>
+                        </div>
+                      </div>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"status"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"item"</span>: {
+    <span class="hljs-attr">"snippetBody"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"artistOptions"</span>: [
+      <span class="hljs-string">"string"</span>
+    ],
+    <span class="hljs-attr">"rightArtist"</span>: <span class="hljs-string">"string"</span>
+  }
+}
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-PlayerHighScoresArrayResponse" class="definition panel" data-traverse-target="definition-PlayerHighScoresArrayResponse">
+            <h2 class="panel-title">
+              <a name="/definitions/PlayerHighScoresArrayResponse"></a>PlayerHighScoresArrayResponse: object
+              <!-- <span class="json-property-type"><div class="json-property-type">object</div>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="status">
+                      <span class="json-property-name">status:</span>
+                      <div class="json-property-type">
+                        <div class="">
+                          <a class="json-schema-ref" href="#/definitions/ResponseStatus">ResponseStatus</a>
+                        </div>
+                      </div>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="items">
+                      <span class="json-property-name">items:</span>
+                      <div class="json-property-type">
+                        <div class="json-schema-ref-array">
+                          <a class="json-schema-ref" href="#/definitions/PlayerScore">PlayerScore</a>
+                        </div>
+                      </div>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"status"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"items"</span>: [
+    {
+      <span class="hljs-attr">"playerName"</span>: <span class="hljs-string">"string"</span>,
+      <span class="hljs-attr">"numberOfPlays"</span>: <span class="hljs-string">"number"</span>,
+      <span class="hljs-attr">"numberOfCorrectAnswers"</span>: <span class="hljs-string">"number"</span>,
+      <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"object"</span>
+    }
+  ]
+}
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-PlayerScore" class="definition panel" data-traverse-target="definition-PlayerScore">
+            <h2 class="panel-title">
+              <a name="/definitions/PlayerScore"></a>PlayerScore: object
+              <!-- <span class="json-property-type"><div class="json-property-type">object</div>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="playerName">
+                      <span class="json-property-name">playerName:</span>
+                      <div class="json-property-type">
+                        <div class="json-schema-ref-string">
+                          <a class="json-schema-ref" href="#/definitions/String">String</a>
+                        </div>
+                      </div>
+                      <span class="json-property-range" title="Value limits"></span>
+                      <span class="json-property-required"></span>
+                    </dt>
+                    <dt data-property-name="numberOfPlays">
+                      <span class="json-property-name">numberOfPlays:</span>
+                      <div class="json-property-type">
+                        <div class="json-schema-ref-number">
+                          <a class="json-schema-ref" href="#/definitions/Int">Int</a>
+                        </div>
+                      </div>
+                      <span class="json-property-range" title="Value limits"></span>
+                      <span class="json-property-required"></span>
+                    </dt>
+                    <dt data-property-name="numberOfCorrectAnswers">
+                      <span class="json-property-name">numberOfCorrectAnswers:</span>
+                      <div class="json-property-type">
+                        <div class="json-schema-ref-number">
+                          <a class="json-schema-ref" href="#/definitions/Int">Int</a>
+                        </div>
+                      </div>
+                      <span class="json-property-range" title="Value limits"></span>
+                      <span class="json-property-required"></span>
+                    </dt>
+                    <dt data-property-name="createdAt">
+                      <span class="json-property-name">createdAt:</span>
+                      <div class="json-property-type">
+                        <div class="">
+                          <a class="json-schema-ref" href="#/definitions/DateTimeScalar">DateTimeScalar</a>
+                        </div>
+                      </div>
+                      <span class="json-property-range" title="Value limits"></span>
+                      <span class="json-property-required"></span>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"playerName"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"numberOfPlays"</span>: <span class="hljs-string">"number"</span>,
+  <span class="hljs-attr">"numberOfCorrectAnswers"</span>: <span class="hljs-string">"number"</span>,
+  <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"object"</span>
+}
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-PlayerScoreResponse" class="definition panel" data-traverse-target="definition-PlayerScoreResponse">
+            <h2 class="panel-title">
+              <a name="/definitions/PlayerScoreResponse"></a>PlayerScoreResponse: object
+              <!-- <span class="json-property-type"><div class="json-property-type">object</div>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="status">
+                      <span class="json-property-name">status:</span>
+                      <div class="json-property-type">
+                        <div class="">
+                          <a class="json-schema-ref" href="#/definitions/ResponseStatus">ResponseStatus</a>
+                        </div>
+                      </div>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="item">
+                      <span class="json-property-name">item:</span>
+                      <div class="json-property-type">
+                        <div class="">
+                          <a class="json-schema-ref" href="#/definitions/PlayerScore">PlayerScore</a>
+                        </div>
+                      </div>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"status"</span>: <span class="hljs-string">"string"</span>,
+  <span class="hljs-attr">"item"</span>: {
+    <span class="hljs-attr">"playerName"</span>: <span class="hljs-string">"string"</span>,
+    <span class="hljs-attr">"numberOfPlays"</span>: <span class="hljs-string">"number"</span>,
+    <span class="hljs-attr">"numberOfCorrectAnswers"</span>: <span class="hljs-string">"number"</span>,
+    <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"object"</span>
+  }
+}
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-ResponseStatus" class="definition panel" data-traverse-target="definition-ResponseStatus">
+            <h2 class="panel-title">
+              <a name="/definitions/ResponseStatus"></a>ResponseStatus: string
+              <!-- <span class="json-property-type"><div class="json-property-type"></div>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Response statuses</p>
+                </section>
+                <section class="json-schema-anyOf">
+                  <dl>
+                    <dt>
+                      <div class="json-property-type">object</div>
+                      <span class="json-property-enum" title="Possible values">
+                        <span class="json-property-enum-item">ok</span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd> </dd>
+                    <dt>
+                      <div class="json-property-type">object</div>
+                      <span class="json-property-enum" title="Possible values">
+                        <span class="json-property-enum-item">error</span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd> </dd>
+                  </dl>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-String" class="definition panel" data-traverse-target="definition-String">
+            <h2 class="panel-title">
+              <a name="/definitions/String"></a>String: string
+              <!-- <span class="json-property-type"><div class="json-property-type">string</div>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>The <code>String</code> scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.</p>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div class="doc-row no-margin">
+            <div class="doc-copy doc-separator">
+              <a class="powered-by" href="https://github.com/wayfair/dociql">Documentation by
+                <span>DociQL</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </body>
+</html>

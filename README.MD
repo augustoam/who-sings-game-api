@@ -1,6 +1,6 @@
-# Who Sings
+# Who Sings Game API
 
-This is the Who Sings service created using TypeScript and NodeJS.
+This is the Who Sings Game API created using TypeScript and NodeJS.
 
 ## Setup
 
