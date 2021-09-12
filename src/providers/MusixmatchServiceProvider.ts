@@ -4,9 +4,8 @@ import { ProvideAsSingleton } from "../context/IocProvider";
 import { InternalServiceProvider } from "./InternalServiceProvider";
 import got from 'got';
 import { mapErrorCode } from "../models/Errors";
-import { LyricsSnippet } from "../graphQL/responses/LyricsSnippet";
-import { Cacheable } from "@type-cacheable/core";
 import { ChartNamesEnum } from "../models/Enums";
+import { Cacheable } from "@type-cacheable/core";
 
 @ProvideAsSingleton(MusixmatchServiceProvider)
 export class MusixmatchServiceProvider extends InternalServiceProvider {
@@ -17,29 +16,6 @@ export class MusixmatchServiceProvider extends InternalServiceProvider {
   constructor() {
     super();
     this.baseUrl = CONFIG.musixmatch.address.replace(/\/$/, '');
-  }
-
-  public async getLyricsSnippet(): Promise<LyricsSnippet> {
-    const tracks = await this.getChartTracks(Math.floor(Math.random() * 4));
-
-    const rightTrack = tracks[Math.floor(Math.random() * tracks.length)].track;
-    const trackSnippet = await this.getTrackSnippet(rightTrack.track_id);
-
-    let artistOptions: string[] = [rightTrack.artist_name];
-
-    // Fill the artist options array with unique artists
-    while (artistOptions.length < 3) {
-      const randomTrack = tracks[Math.floor(Math.random() * tracks.length)].track;
-      if (!artistOptions.includes(randomTrack.artist_name)) {
-        artistOptions = artistOptions.concat(randomTrack.artist_name);
-      }
-    }
-
-    return {
-      snippetBody: trackSnippet.snippet_body,
-      rightArtist: rightTrack.artist_name,
-      artistOptions: artistOptions.sort(() => Math.random() - 0.5) // Shuffle options
-    };
   }
 
   @Cacheable({
@@ -71,7 +47,7 @@ export class MusixmatchServiceProvider extends InternalServiceProvider {
         return null;
       })
       .catch((error => {
-        this.logger.error(`Failed to request a chart tracks. Error: ${error}`);
+        this.logger.error(`Failed to request a chart tracks. Error: ${error?.status_code}`);
 
         throw new Error(mapErrorCode(error));
       }));
@@ -104,7 +80,7 @@ export class MusixmatchServiceProvider extends InternalServiceProvider {
         return null;
       })
       .catch((error => {
-        this.logger.error(`Failed to request a track snippet with trackId: ${trackId}. Error: ${error.message}`);
+        this.logger.error(`Failed to request a track snippet with trackId: ${trackId}. Error: ${error?.status_code}`);
 
         throw new Error(mapErrorCode(error));
       }));

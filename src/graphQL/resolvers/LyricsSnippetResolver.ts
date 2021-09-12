@@ -1,10 +1,9 @@
-import { Ctx, ObjectType, Query, Resolver } from 'type-graphql';
-import { Request } from 'express';
+import { ObjectType, Query, Resolver } from 'type-graphql';
 import { EntityResponseFn } from '../responses/common/EntityResponseFn';
 import { LyricsSnippet } from '../responses/LyricsSnippet';
 import { Inject, ProvideAsSingleton } from '../../context/IocProvider';
-import { MusixmatchServiceProvider } from '../../providers/MusixmatchServiceProvider';
 import { ResponseMapper } from '../../utils/ResponseMapper';
+import { LyricsSnippetService } from '../../services/LyricsSnippetService';
 
 @ObjectType()
 class LyricsSnippetResponse extends EntityResponseFn(LyricsSnippet) { }
@@ -13,11 +12,11 @@ class LyricsSnippetResponse extends EntityResponseFn(LyricsSnippet) { }
 @ProvideAsSingleton(LyricsSnippetResolver)
 export class LyricsSnippetResolver {
 
-  constructor(@Inject(MusixmatchServiceProvider) private musixmatchServiceProvider: MusixmatchServiceProvider,) {
+  constructor(@Inject(LyricsSnippetService) private lyricsSnippetService: LyricsSnippetService) {
   }
 
   @Query(type => LyricsSnippetResponse)
-  public async lyricsSnippet(@Ctx() request: Request) {
-    return ResponseMapper.entityResponse<LyricsSnippet>(await this.musixmatchServiceProvider.getLyricsSnippet());
+  public async lyricsSnippet() {
+    return ResponseMapper.entityResponse<LyricsSnippet>(await this.lyricsSnippetService.getLyricsSnippet());
   }
 }
