@@ -1,14 +1,14 @@
 {
-  "name": "who-sings-musixmatch",
+  "name": "who_sings_game_api",
   "version": "0.0.1",
-  "description": "Musixmatch - JavaScript Engineer Test",
-  "repository": "https://github.com/augustoam/who-sings-musixmatch",
+  "description": "Who Sings Game API",
+  "repository": "https://github.com/augustoam/who-sings-game-api",
   "scripts": {
     "compile": "tsc",
     "start": "node build/index.js"
   },
   "author": "Augusto Pedrollo Albertoni",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@type-cacheable/core": "^8.0.5",
     "@type-cacheable/ioredis-adapter": "^9.1.0",

@@ -1,11 +1,12 @@
-import { Inject, Provide } from '../../context/IocProvider'
-import { BootPhase } from '../BootPhase'
-import { Application } from '../../context/Application'
-import { LoggerFactory } from '../../context/components/LoggerFactory'
-import { CONFIG } from '../../context/components/Configuration'
-import { ErrorHandlerMiddleware } from '../../middleware/express/ErrorHandlerMiddleware'
-import { GraphQL } from '../../context/components/GraphQL'
-import { Rest } from '../../context/components/Rest'
+import { Inject, Provide } from '../../context/IocProvider';
+import { BootPhase } from '../BootPhase';
+import { Application } from '../../context/Application';
+import { LoggerFactory } from '../../context/components/LoggerFactory';
+import { CONFIG } from '../../context/components/Configuration';
+import { ErrorHandlerMiddleware } from '../../middleware/express/ErrorHandlerMiddleware';
+import { GraphQL } from '../../context/components/GraphQL';
+import { Rest } from '../../context/components/Rest';
+import { Proxy } from '../../context/components/Proxy';
 
 @Provide(ServerPhase)
 export class ServerPhase extends BootPhase {
@@ -15,6 +16,7 @@ export class ServerPhase extends BootPhase {
     constructor(
         @Inject(ErrorHandlerMiddleware) private errorHandlerMiddleware: ErrorHandlerMiddleware,
         @Inject(Rest) private rest: Rest,
+        @Inject(Proxy) private proxy: Proxy,
         @Inject(GraphQL) private graphQL: GraphQL,
     ) {
         super();
@@ -28,6 +30,9 @@ export class ServerPhase extends BootPhase {
 
         //install GraphQL
         await this.graphQL.init(app);
+
+        // install proxy
+        this.proxy.init(app);
 
         // install error Handler
         app.express.use(this.errorHandlerMiddleware.sendError.bind(this.errorHandlerMiddleware));

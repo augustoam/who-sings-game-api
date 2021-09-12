@@ -56,7 +56,7 @@ export class MusixmatchServiceProvider extends InternalServiceProvider {
   @Cacheable({
     cacheKey: (args: any[]) => args[0],
     hashKey: `:tracks`,
-    ttlSeconds: 3600, // 1 hour
+    ttlSeconds: 86400, // 24 hour
   })
   public async getTrackSnippet(trackId: number): Promise<MusixmatchTrackSnippetResponse | null> {
     let options: any = await this.getDefaultOptions();
