@@ -10,7 +10,7 @@
   <p align="center">
     An awesome GraphQL API built for the game "Who Sings" integrated with the musixmatch lyrics database. 
     <br />
-    <a href="https://github.com/augustoam/who-sings-game-api"><strong>Explore the docs »</strong></a>
+    <a href="https://augustoam.github.io/who-sings-game-api/"><strong>Explore the docs »</strong></a>
     <br />
   </p>
 </p>
@@ -39,7 +39,6 @@
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
 </details>
 
@@ -48,9 +47,12 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
+The main idea of this project is to provide a robust and fast API for the game "Who Sings". This service is integrated with [Musixmatch](https://www.musixmatch.com/) lyrics database, allowing the player to have a real experience based on existing songs and artists. 
+The game is based on a quiz where the player has to choose who sings a snippet of lyrics provided with 3 options of artists. After completing these quizzes the game ends and the player receives a final score based on the number of correct answers.
+
+
 
 ### Built With
-
 
 This service is built based on the following technologies
 * [NodeJS](https://nodejs.org/)
@@ -67,8 +69,8 @@ This service is built based on the following technologies
 ### Prerequisites
 
 Before proceeding with the installation of dependencies and configuration of the environment variables, make sure you have the following services running:
-* Mongo DB instance
-* Redis instance
+* [Mongo DB](https://www.mongodb.com/)
+* [Redis](https://redis.io/)
 
 You also need to get a Musixmatch API key following these [instructions](https://developer.musixmatch.com/)
 
@@ -76,22 +78,20 @@ You also need to get a Musixmatch API key following these [instructions](https:/
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
    git clone https://github.com/augustoam/who-sings-game-api
    ```
-3. Use the package manager [npm](https://www.npmjs.com/get-npm) to install the dependencies.
+2. Use the package manager [npm](https://www.npmjs.com/get-npm) to install the dependencies.
    ```sh
    npm install
    ```
-4. Create a new file called .env in the root project, and based on the .env.template, fill the requested variables.
+3. Create a new file called .env in the root project, and based on the .env.template, fill the requested variables.
 
 
 
 <!-- USAGE EXAMPLES -->
 ## Usage
-
 
 
 
@@ -126,6 +126,3 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## Contact
 
 Augusto Pedrollo Albertoni - augusto.albertoni@gmail.com
-
-<!-- ACKNOWLEDGEMENTS -->
-## Acknowledgements
