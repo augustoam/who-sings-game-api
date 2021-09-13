@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Who Sings API Game | API Reference</title>
+    <title>Who Sings Game API | API Reference</title>
     <link rel="stylesheet" href="stylesheets/foundation.min.css" />
     <link rel="stylesheet" href="stylesheets/spectacle.min.css" />
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
@@ -61,15 +61,16 @@
         </button>
         <div class="example-box doc-content"></div>
         <article>
-          <h1 class="doc-title">Who Sings API Game
+          <h1 class="doc-title">Who Sings Game API
             <span>API Reference</span>
           </h1>
           <div id="introduction" data-traverse-target="introduction">
             <div class="doc-row">
               <div class="doc-copy">
-                <p>Welcome to the Who Sings Game API reference. This is a live example of how you can use
-                  <a href="https://github.com/wayfair/dociql">DociQL</a> in conjunction with
-                  <a href="https://graphql.org/">GraphQL</a> to generate beautiful static documentation for your own APIs.</p>
+                <p>Welcome to the Who Sings Game API reference. </p>
+                <p>The main idea of this project is to provide a robust and fast API for the game &quot;Who Sings&quot;. This service is integrated with
+                  <a href="https://www.musixmatch.com/">Musixmatch</a> lyrics database, allowing the player to have a real experience based on existing songs and artists. </p>
+                <p>The game is based on a quiz where the player has to choose who sings a snippet of lyrics provided with 3 options of artists. After completing these quizzes the game ends and the player receives a final score based on the number of correct answers.</p>
                 <p>The Who Sings Game API is GraphQL API. It&#39;s schema can be fetched using introspection query and can be used for generating code, documentations, tests etc.</p>
                 <p>GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools.</p>
               </div>
@@ -111,7 +112,7 @@ http://localhost:4000
             <div class="doc-row">
               <div class="doc-copy">
                 <section class="swagger-operation-description">
-                  <p>Query to retrive a random lyrics snippet</p>
+                  <p>Query to retrive a random lyrics snippet. The API response contain a snippet of a lyrics, 3 artist options that will never be repeated and a right artist answer. The algorithm randomly chooses a track from the musixmatch database, based on 4 differents pools of data, top songs, most viewed lyrics in the last 2 hours, most viewed lyrics in the last 7 days and most viewed lyrics in the last 7 days limited to new releases only.</p>
                 </section>
               </div>
             </div>

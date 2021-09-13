@@ -1,0 +1,59 @@
+introspection: http://localhost:4000
+servers:
+  - url: http://localhost:4000
+    description: Who Sings Game API
+info:
+  description: |
+    Welcome to the Who Sings Game API reference. 
+
+    The main idea of this project is to provide a robust and fast API for the game "Who Sings". This service is integrated with [Musixmatch](https://www.musixmatch.com/) lyrics database, allowing the player to have a real experience based on existing songs and artists. 
+    
+    The game is based on a quiz where the player has to choose who sings a snippet of lyrics provided with 3 options of artists. After completing these quizzes the game ends and the player receives a final score based on the number of correct answers.
+    
+    The Who Sings Game API is GraphQL API. It's schema can be fetched using introspection query and can be used for generating code, documentations, tests etc.
+
+    GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools.
+  version: 1.0.0
+  title: Who Sings Game API
+  contact:
+    email: augusto.albertoni@gmail.com
+domains:
+  - name: Lyrics Snippet
+    description: Base methods to fetch lyrics snippet.
+    usecases:
+     - name: Lyrics Snippet
+       description: Query to retrive a random lyrics snippet. The API response contain a snippet of a lyrics, 3 artist options that will never be repeated and a right artist answer. The algorithm randomly chooses a track from the musixmatch database, based on 4 differents pools of data, top songs, most viewed lyrics in the last 2 hours, most viewed lyrics in the last 7 days and most viewed lyrics in the last 7 days limited to new releases only.
+       query: query.lyricsSnippet
+       expand: item
+  - name: Player Score
+    description: Base methods to fetch player score.
+    usecases:
+     - name: Save Player Score
+       description: Mutation to save a player score
+       query: mutation.savePlayerScore
+       expand: item
+     - name: Player High Score 
+       description: Query to retrive a player high score
+       query: query.playerHighScores
+       expand: items
+     - name: Players Leader Board
+       description: Query to retrive a players leader board
+       query: query.playersLeaderBoard
+       expand: items
+# securityDefinitions:
+#   cheesy_auth:
+#     type: oauth2
+#     authorizationUrl: 'http://cheesy.sourcey.com/api/oauth/dialog'
+#     description: Provides OAuth access to the cheese
+#     flow: implicit
+#     scopes:
+#       'write:cheeses': Modify cheeses in your account
+#       'read:cheeses': Read your cheeses
+#   api_key:
+#     type: apiKey
+#     name: api_key
+#     description: Provides API Key access to the cheese
+#     in: header
+# externalDocs:
+#   description: Find out more about Swagger
+#   url: 'http://swagger.io'
