@@ -4,6 +4,9 @@ services:
   ####### DATABASES ######
   mongo:
     image: mongo:latest
+    volumes:
+      - ./database/mongo/db:/data/db
+      - ./database/mongo/configdb:/data/configdb
     ports:
       - 27017:27017
     restart: unless-stopped
@@ -14,6 +17,8 @@ services:
       # ALLOW_EMPTY_PASSWORD is recommended only for development.
       - ALLOW_EMPTY_PASSWORD=yes
       - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
+    volumes:
+      - ./database/redis/bitnami/redis/data
     ports:
       - "6379:6379"
   
