@@ -62,11 +62,11 @@ This service is built based on the following technologies
 
 ### Prerequisites
 
-Before proceeding with the installation of dependencies and configuration of the environment variables, make sure you have the following services running:
+Before proceeding with the installation of dependencies and configuration of the environment variables, you need to get a Musixmatch API key by following these [instructions](https://developer.musixmatch.com/)
+
+You also need the following services running locally. Skip this step if you choose to use docker-compose.
 * [Mongo DB](https://www.mongodb.com/)
 * [Redis](https://redis.io/)
-
-You also need to get a Musixmatch API key following these [instructions](https://developer.musixmatch.com/)
 
 
 
