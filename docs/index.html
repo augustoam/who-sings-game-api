@@ -32,13 +32,13 @@
             <a href="#tag-Player-Score">Player Score</a>
             <ul>
               <li>
-                <a href="#operation-save_player_score-post"> Save Player Score </a>
+                <a href="#operation-save_player-s_score-post"> Save Player&#x27;s Score </a>
               </li>
               <li>
-                <a href="#operation-player_high_score-post"> Player High Score </a>
+                <a href="#operation-player-s_high_score-post"> Player&#x27;s High Score </a>
               </li>
               <li>
-                <a href="#operation-players_leader_board-post"> Players Leader Board </a>
+                <a href="#operation-player-s_leader_board-post"> Player&#x27;s Leader Board </a>
               </li>
             </ul>
           </section>
@@ -94,7 +94,7 @@ http://localhost:4000
           <h1 id="tag-Lyrics-Snippet" class="swagger-summary-tag" data-traverse-target="tag-Lyrics-Snippet">Lyrics Snippet</h1>
           <div class="tag-description doc-row">
             <div class="doc-copy">
-              <p>Base methods to fetch lyrics snippet.</p>
+              <p>List of lyrics snippet methods.</p>
             </div>
           </div>
           <div id="operation-lyrics_snippet-post" class="operation panel" data-traverse-target="operation-lyrics_snippet-post">
@@ -205,10 +205,10 @@ http://localhost:4000
           <h1 id="tag-Player-Score" class="swagger-summary-tag" data-traverse-target="tag-Player-Score">Player Score</h1>
           <div class="tag-description doc-row">
             <div class="doc-copy">
-              <p>Base methods to fetch player score.</p>
+              <p>List of player score methods.</p>
             </div>
           </div>
-          <div id="operation-save_player_score-post" class="operation panel" data-traverse-target="operation-save_player_score-post">
+          <div id="operation-save_player-s_score-post" class="operation panel" data-traverse-target="operation-save_player-s_score-post">
             <!-- <section class="operation-tags row"> -->
             <!-- <div class="doc-copy"> -->
             <div class="operation-tags">
@@ -218,12 +218,12 @@ http://localhost:4000
             <!-- </div> -->
             <!-- </section> -->
             <h2 class="operation-title">
-              <span class="operation-summary">Save Player Score</span>
+              <span class="operation-summary">Save Player's Score</span>
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
                 <section class="swagger-operation-description">
-                  <p>Mutation to save a player score</p>
+                  <p>Mutation to save a player&#39;s score. The field numberOfPlays shows the number of different lyrics snippet the player answered. The field numberOfCorrectAnswers shows the number of correct answers. The player name is also required.</p>
                 </section>
               </div>
             </div>
@@ -365,7 +365,7 @@ http://localhost:4000
               </div>
             </div>
           </div>
-          <div id="operation-player_high_score-post" class="operation panel" data-traverse-target="operation-player_high_score-post">
+          <div id="operation-player-s_high_score-post" class="operation panel" data-traverse-target="operation-player-s_high_score-post">
             <!-- <section class="operation-tags row"> -->
             <!-- <div class="doc-copy"> -->
             <div class="operation-tags">
@@ -375,12 +375,12 @@ http://localhost:4000
             <!-- </div> -->
             <!-- </section> -->
             <h2 class="operation-title">
-              <span class="operation-summary">Player High Score</span>
+              <span class="operation-summary">Player's High Score</span>
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
                 <section class="swagger-operation-description">
-                  <p>Query to retrive a player high score</p>
+                  <p>Query to retrieve a player&#39;s highest score, given a player&#39;s name. The best 3 scores are returned sorted by highest number of correct answers, highest rate of correct answers in percentage for the case of equal number of correct answers, and creation date.</p>
                 </section>
               </div>
             </div>
@@ -496,7 +496,7 @@ http://localhost:4000
               </div>
             </div>
           </div>
-          <div id="operation-players_leader_board-post" class="operation panel" data-traverse-target="operation-players_leader_board-post">
+          <div id="operation-player-s_leader_board-post" class="operation panel" data-traverse-target="operation-player-s_leader_board-post">
             <!-- <section class="operation-tags row"> -->
             <!-- <div class="doc-copy"> -->
             <div class="operation-tags">
@@ -506,12 +506,12 @@ http://localhost:4000
             <!-- </div> -->
             <!-- </section> -->
             <h2 class="operation-title">
-              <span class="operation-summary">Players Leader Board</span>
+              <span class="operation-summary">Player's Leader Board</span>
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
                 <section class="swagger-operation-description">
-                  <p>Query to retrive a players leader board</p>
+                  <p>Query to retrive a player&#39;s leader board. The best 10 scores are returned sorted by highest number of correct answers, highest rate of correct answers in percentage for the case of equal number of correct answers, and creation date.</p>
                 </section>
               </div>
             </div>

@@ -17,7 +17,7 @@ export class PlayerScoreRepository extends BaseRepository<PlayerScoreModel>{
       playerName: savePlayerScoreArgs.playerName,
       numberOfPlays: savePlayerScoreArgs.numberOfPlays,
       numberOfCorrectAnswers: savePlayerScoreArgs.numberOfCorrectAnswers,
-      correctAnswerRate: savePlayerScoreArgs.numberOfPlays / savePlayerScoreArgs.numberOfCorrectAnswers,
+      correctAnswerRate: (savePlayerScoreArgs.numberOfCorrectAnswers * 100) / savePlayerScoreArgs.numberOfPlays,
       createdAt: new Date()
     };
 
@@ -27,7 +27,7 @@ export class PlayerScoreRepository extends BaseRepository<PlayerScoreModel>{
   public playerHighScores(playerName: string): Promise<PlayerScoreModel[]> {
     return this.model
       .find({ "playerName": playerName })
-      .sort({ "correctAnswerRate": 1, "createdAt": -1 })
+      .sort({ "numberOfCorrectAnswers": -1, "correctAnswerRate": -1, "createdAt": -1 })
       .limit(3)
       .exec();
   }
@@ -54,7 +54,7 @@ export class PlayerScoreRepository extends BaseRepository<PlayerScoreModel>{
           correctAnswerRate: { $divide: ["$correctAnswerRate", "$count"] }
         }
       },
-      { $sort: { "numberOfCorrectAnswers": -1, "correctAnswerRate": 1, "createdAt": -1 } },
+      { $sort: { "numberOfCorrectAnswers": -1, "correctAnswerRate": -1, "createdAt": -1 } },
       { $limit: 10 }
     ]).exec();
   }

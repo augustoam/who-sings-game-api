@@ -19,41 +19,24 @@ info:
     email: augusto.albertoni@gmail.com
 domains:
   - name: Lyrics Snippet
-    description: Base methods to fetch lyrics snippet.
+    description: List of lyrics snippet methods.
     usecases:
      - name: Lyrics Snippet
        description: Query to retrive a random lyrics snippet. The API response contain a snippet of a lyrics, 3 artist options that will never be repeated and a right artist answer. The algorithm randomly chooses a track from the musixmatch database, based on 4 differents pools of data, top songs, most viewed lyrics in the last 2 hours, most viewed lyrics in the last 7 days and most viewed lyrics in the last 7 days limited to new releases only.
        query: query.lyricsSnippet
        expand: item
   - name: Player Score
-    description: Base methods to fetch player score.
+    description: List of player score methods.
     usecases:
-     - name: Save Player Score
-       description: Mutation to save a player score
+     - name: Save Player's Score
+       description: Mutation to save a player's score. The field numberOfPlays shows the number of different lyrics snippet the player answered. The field numberOfCorrectAnswers shows the number of correct answers. The player name is also required.   
        query: mutation.savePlayerScore
        expand: item
-     - name: Player High Score 
-       description: Query to retrive a player high score
+     - name: Player's High Score
+       description: Query to retrieve a player's highest score, given a player's name. The best 3 scores are returned sorted by highest number of correct answers, highest rate of correct answers in percentage for the case of equal number of correct answers, and creation date.
        query: query.playerHighScores
        expand: items
-     - name: Players Leader Board
-       description: Query to retrive a players leader board
+     - name: Player's Leader Board
+       description: Query to retrive a player's leader board. The best 10 scores are returned sorted by highest number of correct answers, highest rate of correct answers in percentage for the case of equal number of correct answers, and creation date.
        query: query.playersLeaderBoard
        expand: items
-# securityDefinitions:
-#   cheesy_auth:
-#     type: oauth2
-#     authorizationUrl: 'http://cheesy.sourcey.com/api/oauth/dialog'
-#     description: Provides OAuth access to the cheese
-#     flow: implicit
-#     scopes:
-#       'write:cheeses': Modify cheeses in your account
-#       'read:cheeses': Read your cheeses
-#   api_key:
-#     type: apiKey
-#     name: api_key
-#     description: Provides API Key access to the cheese
-#     in: header
-# externalDocs:
-#   description: Find out more about Swagger
-#   url: 'http://swagger.io'
